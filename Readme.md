@@ -40,7 +40,7 @@ To run this project, you will need to add the following environment variables to
 #### Create item
 
 ```http
-  POST /api/v1/hooks-caller/${id}
+  POST /api/v1/hooks-caller
 ```
 
 | Parameter | Type     | Description                       |
@@ -48,7 +48,7 @@ To run this project, you will need to add the following environment variables to
 | `hours`      | `number` | **Required**. hours for create item also it can be 0 |
 | `minutes`      | `number` | **Required**. minutes for create item also it can be 0 |
 | `seconds`      | `number` | **Required**. seconds for create item also it can be 0 |
-| `webhookUrl`      | `number` | **Required**. webhookUrl it must be link|
+| `webhookUrl`      | `string` | **Required**. webhookUrl it must be link|
 
 #### Get all items
 

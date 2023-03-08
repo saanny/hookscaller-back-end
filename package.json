@@ -53,6 +53,7 @@
     "express": "^4.18.2",
     "inversify-express-utils": "^6.4.3",
     "jalali-moment": "^3.3.11",
+    "joi": "^17.8.3",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.41",
     "morgan": "^1.10.0",

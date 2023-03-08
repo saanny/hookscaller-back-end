@@ -1,13 +1,15 @@
+import { inputValidator } from "@Utils/InputValidator";
 import { NextFunction, Request, Response } from "express";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
 import HooksCallerService from "./Service";
+import { inputCreateItem, inputGetItem } from "./validationSchema";
 
 @controller('/api/v1/hooks-caller')
 export class HooksCallerController {
 
     constructor(private hooksCallerService: HooksCallerService) { }
 
-    @httpPost("/")
+    @httpPost("/", inputValidator(inputCreateItem))
     public async createOne(req: Request, res: Response, next: NextFunction) {
         const { hours, minutes, seconds, webhookUrl } = req.body;
 
@@ -24,7 +26,7 @@ export class HooksCallerController {
     }
 
 
-    @httpGet('/:id')
+    @httpGet('/:id', inputValidator(inputGetItem))
     public async getOneById(req: Request, res: Response, next: NextFunction) {
         const { id } = req.params;
 
