@@ -7,6 +7,7 @@ import moment from "moment-timezone";
 export default class HooksCallerService {
 
     public async createOne(data: CreateDTO): Promise<{ id: number }> {
+
         const dateTarget = moment().add(data.seconds, "seconds").add(data.minutes, "minutes").add(data.hours, "hours").tz("Asia/Tehran").toDate();
 
         const hooksCaller = await HooksCaller.create({
@@ -34,11 +35,8 @@ export default class HooksCallerService {
     }
     public async findAll(): Promise<Array<IHooksCallerTransformer>> {
         const hookCallers: Array<IHooksCaller> = await HooksCaller.findAll({
-            where: {
-                status: HookCallerStatus.INPROGRESS
-            }
-            ,
-            raw: true
+            raw: true,
+            order: [['date', 'DESC']],
         });
         const changeSchema = hookCallers.map((item) => {
             return {

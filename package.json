@@ -11,6 +11,8 @@
     "test": "jest",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint --fix",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down --volumes",
     "format": "prettier --write . && pnpm lint --fix"
   },
   "lint-staged": {
