@@ -7,7 +7,7 @@ An application which can call the scheduled apis.
 
 ## Installation
 
-Install HookCaller with npm
+Install HookCaller with yarn
 
 ```bash
   yarn install 
